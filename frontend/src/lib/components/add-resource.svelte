@@ -4,16 +4,15 @@
     import { Label } from "$lib/components/ui/label/index";
     import * as Card from "$lib/components/ui/card/index";
 
-    let { email='', handleSubmit = ((e) => { e.preventDefault(); window.location.href = '/dashboard'}) } = $props();
-    let password = $state('');
+    let { email='', handleSubmit = ((e) => { e.preventDefault() ; window.location.href = '/dashboard/resource'}) } = $props();
 </script>
 
-<div class="flex flex-row items-center justify-center h-screen">
+<div class="mt-2 pt-2 flex flex-row items-center">
     <Card.Root class="w-[400px]">
         <Card.Header>
-            <Card.Title class="text-2xl">Login</Card.Title>
+            <Card.Title class="text-2xl">Create Resource</Card.Title>
             <Card.Description>
-                Enter your email below to login to your account
+                Enter the details to create a new resource
             </Card.Description>
         </Card.Header>
         <Card.Content>
@@ -30,20 +29,12 @@
                     </div>
 
                     <div class="grid gap-2">
-                        <div class="flex items-center">
-                            <Label for="password">Password</Label>
-                            <a
-                                href="/auth/reset"
-                                class="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                            >
-                                Forgot your password?
-                            </a>
-                        </div>
-                        <Input type="password" bind:value={password} />
+                        <Label for="Amount">Amount</Label>
+                        <Input type="number" />
                     </div>
 
                     <div class="my-6">
-                        <Button class="w-full" type="submit">Login</Button>
+                        <Button class="w-full" type="submit" variant="outline">Create</Button>
                     </div>
                 </div>
             </form>
